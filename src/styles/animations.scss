@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .animations {
   margin: 0 auto;
   position: relative;
@@ -39,7 +41,7 @@
     position: relative;
     z-index: 10;
     display: flex;
-    gap: 165px;
+    gap: 115px;
   }
 
   &__date {
@@ -98,6 +100,76 @@
       img {
         transform: scale(-1, 1);
       }
+    }
+  }
+}
+
+.circle {
+  position: absolute;
+  z-index: 15;
+  width: 530px;
+  height: 530px;
+  top: 480px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba($black-blue, 0.2);
+  border-radius: 50%;
+
+  &__container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &__dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $black-blue;
+
+    &:hover {
+      button {
+        display: inline-block;
+      }
+    }
+
+    &_1 {
+      right: math.div(132px, 530px) * 100%;
+      top: math.div(31px, 530px) * 100%;
+    }
+
+    &_2 {
+      right: math.div(120px, 530px) * 100%;
+      bottom: math.div(38px, 530px) * 100%;
+    }
+
+    &_3 {
+      left: -3px;
+      bottom: 50% - math.div(3px, 530px) * 100%;
+    }
+  }
+
+  &__button {
+    display: none;
+    width: 56px;
+    height: 56px;
+    border: 1px solid rgba($dark-blue, 0.2);
+    border-radius: 50%;
+    background: $white;
+    color: $black-blue;
+    overflow: visible;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+
+    &.active {
+      display: inline-block;
     }
   }
 }

@@ -30,7 +30,34 @@ const App: React.FC = () => {
     <div className="wrapper">
       <div className="line line_x"></div>
       <div className="line line_y"></div>
-      <div className="circle"></div>
+      <div className="circle">
+        <div className="circle__container">
+          <div className="circle__dot circle__dot_1">
+            <button
+              onClick={() => setCurrentIndex(0)}
+              className={`circle__button ${currentIndex === 0 ? "active" : ""}`}
+            >
+              1
+            </button>
+          </div>
+          <div className="circle__dot circle__dot_2">
+            <button
+              onClick={() => setCurrentIndex(1)}
+              className={`circle__button ${currentIndex === 1 ? "active" : ""}`}
+            >
+              2
+            </button>
+          </div>
+          <div className="circle__dot circle__dot_3">
+            <button
+              onClick={() => setCurrentIndex(2)}
+              className={`circle__button ${currentIndex === 2 ? "active" : ""}`}
+            >
+              3
+            </button>
+          </div>
+        </div>
+      </div>
       <div className="animations">
         <h1 className="animations__title">
           <span>
