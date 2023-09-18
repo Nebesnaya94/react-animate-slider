@@ -67,18 +67,10 @@ const App: React.FC = () => {
         <div className="animations__container">
           <div className="animations__dates">
             <div className="animations__date animations__date_prev">
-              <DateCounter
-                diff={currentDates[0]}
-                initial={datesList[0][0]}
-                action={decrement}
-              />
+              <DateCounter diff={currentDates[0]} initial={datesList[0][0]} />
             </div>
             <div className="animations__date animations__date_next">
-              <DateCounter
-                diff={currentDates[1]}
-                initial={datesList[0][1]}
-                action={increment}
-              />
+              <DateCounter diff={currentDates[1]} initial={datesList[0][1]} />
             </div>
           </div>
         </div>

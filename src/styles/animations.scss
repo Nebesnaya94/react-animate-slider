@@ -8,7 +8,6 @@
   &__title {
     margin: 0;
     position: absolute;
-    z-index: 10;
     top: -45px;
     left: 0;
 
@@ -39,7 +38,7 @@
 
   &__dates {
     position: relative;
-    z-index: 10;
+    z-index: 5;
     display: flex;
     gap: 115px;
   }
@@ -49,7 +48,7 @@
     font-weight: 700;
     line-height: 160px;
     letter-spacing: -0.02em;
-    cursor: pointer;
+    cursor: default;
 
     &_next {
       color: $fuchia;
@@ -62,7 +61,6 @@
 
   &__counter {
     position: absolute;
-    z-index: 10;
     left: 0;
     bottom: -40px;
   }
@@ -106,7 +104,7 @@
 
 .circle {
   position: absolute;
-  z-index: 15;
+  z-index: 10;
   width: 530px;
   height: 530px;
   top: 480px;
@@ -114,6 +112,10 @@
   transform: translate(-50%, -50%);
   border: 1px solid rgba($black-blue, 0.2);
   border-radius: 50%;
+
+  * {
+    transition: 0.2s ease-in-out;
+  }
 
   &__container {
     position: relative;
@@ -134,7 +136,7 @@
 
     &:hover {
       button {
-        display: inline-block;
+        opacity: 1;
       }
     }
 
@@ -155,7 +157,7 @@
   }
 
   &__button {
-    display: none;
+    opacity: 0;
     width: 56px;
     height: 56px;
     border: 1px solid rgba($dark-blue, 0.2);
@@ -167,9 +169,10 @@
     font-size: 20px;
     font-weight: 400;
     line-height: 30px;
+    cursor: pointer;
 
     &.active {
-      display: inline-block;
+      opacity: 1;
     }
   }
 }

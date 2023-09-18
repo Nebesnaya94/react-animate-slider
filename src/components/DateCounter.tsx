@@ -3,10 +3,9 @@ import React from "react";
 interface DateCounterProps {
   diff: number;
   initial: number;
-  action: () => void;
 }
 
-const DateCounter: React.FC<DateCounterProps> = ({ diff, initial, action }) => {
+const DateCounter: React.FC<DateCounterProps> = ({ diff, initial }) => {
   const [count, setCount] = React.useState<number>(initial);
 
   function counter() {
@@ -23,7 +22,7 @@ const DateCounter: React.FC<DateCounterProps> = ({ diff, initial, action }) => {
     counter();
   }, [diff, count]);
 
-  return <span onClick={action}>{count}</span>;
+  return <span>{count}</span>;
 };
 
 export default DateCounter;
