@@ -2,6 +2,7 @@ import React from "react";
 import { TDates } from "../types/models";
 import DatesSlider from "./dates/DatesSlider";
 import Circle from "./circle/Circle";
+import { useClick } from "../hooks/useClick";
 
 const App: React.FC = () => {
   const datesList: TDates[] = [
@@ -11,6 +12,8 @@ const App: React.FC = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = React.useState<number>(0);
+
+  useClick();
 
   function increment() {
     if (currentIndex < datesList.length - 1) {

@@ -2,6 +2,10 @@
   padding: 0 10px;
 }
 
+* {
+  cursor: url("../../assets/images/cursor.png"), auto;
+}
+
 .wrapper {
   border-left: 1px solid rgba($black-blue, 0.1);
   border-right: 1px solid rgba($black-blue, 0.1);
@@ -29,4 +33,16 @@
       width: 1px;
     }
   }
+}
+
+.click-effect {
+  width: 35px;
+  height: 35px;
+  border: 2px solid;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 50;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

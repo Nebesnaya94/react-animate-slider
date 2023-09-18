@@ -11,10 +11,6 @@
   border: 1px solid rgba($black-blue, 0.2);
   border-radius: 50%;
 
-  * {
-    transition: 0.2s ease-in-out;
-  }
-
   &__container {
     position: relative;
     width: 100%;
@@ -60,7 +56,7 @@
     height: 56px;
     border: 1px solid rgba($dark-blue, 0.2);
     border-radius: 50%;
-    background: $white;
+    background: $light;
     color: $black-blue;
     overflow: visible;
     transform: translate(-50%, -50%);

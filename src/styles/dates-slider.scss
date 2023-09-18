@@ -46,7 +46,6 @@
     font-weight: 700;
     line-height: 160px;
     letter-spacing: -0.02em;
-    cursor: default;
 
     &_next {
       color: $fuchia;
@@ -81,15 +80,21 @@
     width: 50px;
     font-size: 30px;
     color: $black-blue;
-    background: $white;
+    background: $light;
     border: 1px solid $black-blue;
     border-radius: 50%;
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      background: $white;
+    }
 
     &:disabled {
       opacity: 50%;
+      background: $light;
     }
 
     &_next {
