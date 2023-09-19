@@ -8,10 +8,10 @@ interface ICircleProps {
 }
 
 const Circle: React.FC<ICircleProps> = ({ index, setIndex }) => {
-  const [isRotating, setIsRotating] = React.useState(false);
-  const [currentRotation, setCurrentRotation] = React.useState(0);
-  const [hasMounted, setHasMounted] = React.useState(false);
-  const [prevIndex, setPrevIndex] = React.useState(0);
+  const [isRotating, setIsRotating] = React.useState<boolean>(false);
+  const [currentRotation, setCurrentRotation] = React.useState<number>(0);
+  const [hasMounted, setHasMounted] = React.useState<boolean>(false);
+  const [prevIndex, setPrevIndex] = React.useState<number>(0);
 
   function rotate() {
     if (isRotating || !hasMounted) return;

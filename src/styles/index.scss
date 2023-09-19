@@ -6,13 +6,17 @@
 
 @font-face {
   font-family: "PTSans-Regular";
-  src: url(../../assets/fonts/PTSans/PTSans-Regular.ttf) format("ttf");
+  src: url(../../assets/fonts/PTSans/PTSans-Regular.ttf) format("ttf"),
+    url(../../assets/fonts/PTSans/PTSans-Regular.woff) format("woff"),
+    url(../../assets/fonts/PTSans/PTSans-Regular.woff2) format("woff2");
   font-weight: 400;
 }
 
 @font-face {
   font-family: "PTSans-Bold";
-  src: url(../../assets/fonts/PTSans/PTSans-Bold.ttf) format("ttf");
+  src: url(../../assets/fonts/PTSans/PTSans-Bold.ttf) format("ttf"),
+    url(../../assets/fonts/PTSans/PTSans-Bold.woff) format("woff"),
+    url(../../assets/fonts/PTSans/PTSans-Bold.woff2) format("woff2");
   font-weight: 700;
 }
 

@@ -16,8 +16,8 @@ const CircleItem: React.FC<ICircleItemProps> = ({
   currentIndex,
   itemIndex,
 }) => {
-  const buttonRef = React.useRef(null);
-  const [isAnimating, setIsAnimating] = React.useState(false);
+  const buttonRef = React.useRef<HTMLButtonElement | null>(null);
+  const [isAnimating, setIsAnimating] = React.useState<boolean>(false);
 
   function animateButton(
     startValues: IAnimationValues,
