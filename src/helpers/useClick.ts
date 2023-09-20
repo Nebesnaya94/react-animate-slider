@@ -5,8 +5,8 @@ export const useClick = () => {
   const clickHandler = (e: MouseEvent) => {
     const clickEffect = document.createElement("div");
     clickEffect.className = "click-effect";
-    const x = e.clientX;
-    const y = e.clientY;
+    const x = e.pageX;
+    const y = e.pageY;
     clickEffect.style.left = `${x}px`;
     clickEffect.style.top = `${y}px`;
     document.body.append(clickEffect);

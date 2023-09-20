@@ -1,0 +1,73 @@
+.swiper.swiper-initialized {
+  height: 250px;
+  overflow-y: visible;
+  margin: 0 -60px;
+  padding: 0 60px;
+
+  &::before,
+  &::after {
+    content: "";
+    background: $light;
+    width: 60px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+  }
+
+  &::before {
+    left: -1px;
+  }
+
+  &::after {
+    right: -1px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+    background: $white;
+    box-shadow: 0px 0px 15px 0px #3877ee1a;
+    border-radius: 50%;
+
+    &.swiper-button-disabled {
+      display: none;
+    }
+
+    &:after {
+      content: "";
+      background: url(../../assets/images/vector-slider.svg) no-repeat;
+      width: 8px;
+      height: 12px;
+    }
+  }
+
+  .swiper-button-prev {
+    left: var(--swiper-navigation-sides-offset, 0);
+
+    &:after {
+      transform: scale(-1, 1);
+    }
+  }
+
+  .swiper-button-next {
+    right: var(--swiper-navigation-sides-offset, 0);
+  }
+}
+
+.slide {
+  &__title {
+    font-family: "BebasNeue";
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    color: #3877ee;
+  }
+
+  &__text {
+    font-size: 20px;
+    line-height: 30px;
+    color: #42567a;
+  }
+}

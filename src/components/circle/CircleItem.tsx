@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import React from "react";
+import { infoList } from "../../data/sliderData";
 
 interface ICircleItemProps {
   setIndex: (value: number) => void;
@@ -51,17 +52,26 @@ const CircleItem: React.FC<ICircleItemProps> = ({
 
   return (
     <div className="circle__dot">
-      <button
-        ref={buttonRef}
-        onMouseEnter={buttonIn}
-        onMouseLeave={buttonOut}
-        onClick={() => setIndex(itemIndex)}
-        className={`circle__button ${
-          currentIndex === itemIndex ? "active" : ""
-        }`}
-      >
-        {itemIndex + 1}
-      </button>
+      <div className="circle__item">
+        <button
+          ref={buttonRef}
+          onMouseEnter={buttonIn}
+          onMouseLeave={buttonOut}
+          onClick={() => setIndex(itemIndex)}
+          className={`circle__button${
+            currentIndex === itemIndex ? " " + "active" : ""
+          }`}
+        >
+          {itemIndex + 1}
+        </button>
+        <div
+          className={`circle__text${
+            currentIndex === itemIndex ? " " + "active" : ""
+          }`}
+        >
+          {infoList[itemIndex].title}
+        </div>
+      </div>
     </div>
   );
 };

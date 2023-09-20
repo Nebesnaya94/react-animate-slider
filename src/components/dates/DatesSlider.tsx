@@ -1,7 +1,7 @@
 import React from "react";
 import DateCounter from "./DateCounter";
 import { TDates } from "../../data/models";
-import ArrowIcon from "../../../assets/images/vector.png";
+import ArrowIcon from "../../../assets/images/vector-count.png";
 
 interface IDateSliderProps {
   dateIndex: number;
