@@ -1,5 +1,3 @@
-@use "sass:math";
-
 .circle {
   position: absolute;
   z-index: 10;
@@ -27,26 +25,13 @@
     height: 6px;
     border-radius: 50%;
     background: $black-blue;
+    top: calc(50% - 3px);
+    left: calc(50% - 3px);
 
     &:hover {
       button {
         opacity: 1;
       }
-    }
-
-    &_1 {
-      right: math.div(132px, 530px) * 100%;
-      top: math.div(31px, 530px) * 100%;
-    }
-
-    &_2 {
-      right: math.div(120px, 530px) * 100%;
-      bottom: math.div(38px, 530px) * 100%;
-    }
-
-    &_3 {
-      left: -3px;
-      bottom: 50% - math.div(3px, 530px) * 100%;
     }
   }
 

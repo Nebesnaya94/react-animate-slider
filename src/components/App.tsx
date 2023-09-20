@@ -1,16 +1,11 @@
 import React from "react";
-import { TDates } from "../types/models";
 import DatesSlider from "./dates/DatesSlider";
 import Circle from "./circle/Circle";
-import { useClick } from "../hooks/useClick";
+import { useClick } from "../helpers/useClick";
+import { datesList } from "../data/sliderData";
+import InfoSlider from "./slider/InfoSlider";
 
 const App: React.FC = () => {
-  const datesList: TDates[] = [
-    [2000, 2009],
-    [2010, 2019],
-    [2020, 2023],
-  ];
-
   const [currentIndex, setCurrentIndex] = React.useState<number>(0);
 
   useClick();
@@ -38,6 +33,7 @@ const App: React.FC = () => {
         increment={increment}
         decrement={decrement}
       />
+      <InfoSlider dataIndex={currentIndex} />
     </div>
   );
 };

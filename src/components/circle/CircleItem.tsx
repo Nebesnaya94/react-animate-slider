@@ -50,7 +50,7 @@ const CircleItem: React.FC<ICircleItemProps> = ({
   }
 
   return (
-    <div className={`circle__dot circle__dot_${itemIndex + 1}`}>
+    <div className="circle__dot">
       <button
         ref={buttonRef}
         onMouseEnter={buttonIn}

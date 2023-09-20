@@ -1,6 +1,6 @@
 import React from "react";
 import DateCounter from "./DateCounter";
-import { TDates } from "../../types/models";
+import { TDates } from "../../data/models";
 import ArrowIcon from "../../../assets/images/vector.png";
 
 interface IDateSliderProps {

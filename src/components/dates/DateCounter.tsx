@@ -8,18 +8,22 @@ interface DateCounterProps {
 const DateCounter: React.FC<DateCounterProps> = ({ diff, initial }) => {
   const [count, setCount] = React.useState<number>(initial);
 
-  function counter() {
+  function counter(duration: number) {
     setTimeout(() => {
       if (count < diff) {
         setCount(count + 1);
       } else if (count > diff) {
         setCount(count - 1);
       }
-    }, 100);
+    }, duration);
   }
 
+  const counterDuration = React.useMemo(() => {
+    return 1000 / Math.abs(diff - count);
+  }, [diff]);
+
   React.useEffect(() => {
-    counter();
+    counter(counterDuration);
   }, [diff, count]);
 
   return <span>{count}</span>;

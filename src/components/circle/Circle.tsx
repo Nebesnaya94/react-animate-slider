@@ -1,6 +1,8 @@
 import React from "react";
 import CircleItem from "./CircleItem";
 import gsap from "gsap";
+import { disposeCircleItems } from "../../helpers/disposeCircleItems";
+import { datesList } from "../../data/sliderData";
 
 interface ICircleProps {
   index: number;
@@ -13,13 +15,19 @@ const Circle: React.FC<ICircleProps> = ({ index, setIndex }) => {
   const [hasMounted, setHasMounted] = React.useState<boolean>(false);
   const [prevIndex, setPrevIndex] = React.useState<number>(0);
 
+  React.useEffect(() => {
+    disposeCircleItems(datesList.length);
+  }, []);
+
   function rotate() {
     if (isRotating || !hasMounted) return;
 
     const newRotation =
       index > prevIndex
-        ? currentRotation + (360 - (index - prevIndex) * 120)
-        : currentRotation - (360 - (prevIndex - index) * 120);
+        ? currentRotation +
+          (360 - (index - prevIndex) * (360 / datesList.length))
+        : currentRotation -
+          (360 - (prevIndex - index) * (360 / datesList.length));
 
     setIsRotating(true);
 
@@ -51,9 +59,14 @@ const Circle: React.FC<ICircleProps> = ({ index, setIndex }) => {
   return (
     <div className="circle">
       <div className="circle__container">
-        <CircleItem setIndex={setIndex} currentIndex={index} itemIndex={0} />
-        <CircleItem setIndex={setIndex} currentIndex={index} itemIndex={1} />
-        <CircleItem setIndex={setIndex} currentIndex={index} itemIndex={2} />
+        {datesList.map((_, i) => (
+          <CircleItem
+            key={i}
+            setIndex={setIndex}
+            currentIndex={index}
+            itemIndex={i}
+          />
+        ))}
       </div>
     </div>
   );
