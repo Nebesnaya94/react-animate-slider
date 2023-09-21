@@ -6,6 +6,7 @@ import { datesList } from "../data/sliderData";
 import InfoSlider from "./slider/InfoSlider";
 import DateCounterLabel from "./dates/DateCounterLabel";
 import ArrowMin from "../../assets/images/vector-min.svg";
+import DateCounterMin from "./dates/DateCounterMin";
 
 const App: React.FC = () => {
   const [currentIndex, setCurrentIndex] = React.useState<number>(0);
@@ -36,7 +37,7 @@ const App: React.FC = () => {
         decrement={decrement}
       />
       <InfoSlider dataIndex={currentIndex} />
-      <div className="label-wrapper">
+      <div className="counter-wrapper">
         <DateCounterLabel
           datesList={datesList}
           dateIndex={currentIndex}
@@ -45,6 +46,7 @@ const App: React.FC = () => {
           prefix="outer"
           icon={ArrowMin}
         />
+        <DateCounterMin index={currentIndex} setIndex={setCurrentIndex} />
       </div>
     </div>
   );

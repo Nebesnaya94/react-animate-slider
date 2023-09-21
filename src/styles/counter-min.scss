@@ -41,17 +41,11 @@
   }
 }
 
-.label-wrapper {
-  display: none;
-
-  @media (max-width: 575px) {
-    display: block;
-    padding-top: 80px;
-  }
-}
-
 .outer-label {
   display: none;
+  position: absolute;
+  left: 0;
+  bottom: 0;
 
   @media (max-width: 575px) {
     display: block;
@@ -91,5 +85,35 @@
   &__button {
     height: 50px;
     width: 50px;
+  }
+}
+
+.counter-wrapper {
+  display: none;
+
+  @media (max-width: 575px) {
+    display: block;
+    padding-top: 80px;
+    position: relative;
+  }
+}
+
+.counter-min {
+  margin: 0 auto;
+  padding-bottom: 32px;
+  display: flex;
+  width: fit-content;
+  gap: 10px;
+
+  &__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $black-blue;
+    opacity: 0.4;
+
+    &.active {
+      opacity: 1;
+    }
   }
 }

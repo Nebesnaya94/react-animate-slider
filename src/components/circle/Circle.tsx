@@ -4,12 +4,12 @@ import gsap from "gsap";
 import { disposeCircleItems } from "../../helpers/disposeCircleItems";
 import { datesList } from "../../data/sliderData";
 
-interface ICircleProps {
+export interface IDateCounterProps {
   index: number;
   setIndex: (value: number) => void;
 }
 
-const Circle: React.FC<ICircleProps> = ({ index, setIndex }) => {
+const Circle: React.FC<IDateCounterProps> = ({ index, setIndex }) => {
   const [isRotating, setIsRotating] = React.useState<boolean>(false);
   const [currentRotation, setCurrentRotation] = React.useState<number>(0);
   const [hasMounted, setHasMounted] = React.useState<boolean>(false);
