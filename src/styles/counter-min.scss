@@ -1,0 +1,119 @@
+@use "sass:math";
+
+.inner-label,
+.outer-label {
+  &__text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    color: $black-blue;
+  }
+
+  &__buttons {
+    display: flex;
+  }
+
+  &__button {
+    font-size: 30px;
+    color: $black-blue;
+    background: $light;
+    border: 1px solid $black-blue;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      background: $white;
+    }
+
+    &:disabled {
+      opacity: 50%;
+      background: $light;
+    }
+
+    &_next {
+      img {
+        transform: scale(-1, 1);
+      }
+    }
+  }
+}
+
+.outer-label {
+  display: none;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  @media (max-width: 575px) {
+    display: block;
+  }
+
+  &__text {
+    margin-bottom: 10px;
+  }
+
+  &__buttons {
+    gap: 10px;
+  }
+
+  &__button {
+    height: 25px;
+    width: 25px;
+  }
+}
+
+.inner-label {
+  position: absolute;
+  left: 0;
+  bottom: -40px;
+
+  @media (max-width: 575px) {
+    display: none;
+  }
+
+  &__text {
+    margin-bottom: 20px;
+  }
+
+  &__buttons {
+    gap: 20px;
+  }
+
+  &__button {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+.counter-wrapper {
+  display: none;
+
+  @media (max-width: 575px) {
+    display: block;
+    padding-top: 80px;
+    position: relative;
+  }
+}
+
+.counter-min {
+  margin: 0 auto;
+  padding-bottom: 20px;
+  display: flex;
+  width: fit-content;
+  gap: 10px;
+
+  &__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $black-blue;
+    opacity: 0.4;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}

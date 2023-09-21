@@ -1,0 +1,125 @@
+.counter {
+  margin: 0 auto 80px;
+  position: relative;
+  height: 530px;
+
+  @media (max-width: 575px) {
+    height: 190px;
+    margin: 0 auto 3px;
+    border-bottom: 2px solid $light-grey;
+  }
+
+  &__title {
+    margin: 0;
+    position: absolute;
+    top: -45px;
+    left: 0;
+
+    @media (max-width: 575px) {
+      top: -50px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -80px;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(180deg, $blue -5%, $fuchia 85%);
+
+      @media (max-width: 991px) {
+        left: -40px;
+      }
+    }
+
+    span,
+    div {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 67px;
+      color: $black-blue;
+      position: relative;
+
+      @media (max-width: 1199px) {
+        font-size: 42px;
+        line-height: 50px;
+      }
+
+      @media (max-width: 575px) {
+        font-size: 20px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  &__container {
+    height: 530px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 575px) {
+      height: 175px;
+    }
+  }
+
+  &__dates {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    gap: 115px;
+    bottom: 15px;
+    right: 20px;
+
+    @media (max-width: 1900px) {
+      bottom: 0px;
+      right: 0px;
+    }
+
+    @media (max-width: 767px) {
+      gap: 70px;
+    }
+
+    @media (max-width: 575px) {
+      gap: normal;
+      width: 100%;
+      justify-content: space-between;
+      padding-right: 10px;
+    }
+  }
+
+  &__date {
+    font-size: 200px;
+    font-weight: 700;
+    line-height: 160px;
+    letter-spacing: -0.02em;
+
+    @media (max-width: 1199px) {
+      font-size: 150px;
+      line-height: 120px;
+    }
+
+    @media (max-width: 991px) {
+      font-size: 130px;
+      line-height: 105px;
+    }
+
+    @media (max-width: 767px) {
+      font-size: 100px;
+      line-height: 80px;
+    }
+
+    @media (max-width: 575px) {
+      font-size: 56px;
+      line-height: 72px;
+    }
+
+    &_next {
+      color: $fuchia;
+    }
+
+    &_prev {
+      color: $iris;
+    }
+  }
+}

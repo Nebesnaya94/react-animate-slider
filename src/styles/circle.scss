@@ -1,0 +1,83 @@
+.circle {
+  position: absolute;
+  z-index: 10;
+  width: 530px;
+  height: 530px;
+  top: 480px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba($black-blue, 0.2);
+  border-radius: 50%;
+
+  @media (max-width: 1199px) {
+    display: none;
+  }
+
+  &__container {
+    position: relative;
+    transform: rotate(-60deg);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &__dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $black-blue;
+    top: calc(50% - 3px);
+    left: calc(50% - 3px);
+
+    &:hover {
+      button {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__button {
+    position: absolute;
+    opacity: 0;
+    width: 56px;
+    height: 56px;
+    border: 1px solid rgba($dark-blue, 0.2);
+    border-radius: 50%;
+    background: $light;
+    color: $black-blue;
+    overflow: visible;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    cursor: pointer;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  &__item {
+    position: relative;
+    transform: rotate(60deg);
+  }
+
+  &__text {
+    opacity: 0;
+    position: absolute;
+    top: -15px;
+    left: 50px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    color: $black-blue;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}
