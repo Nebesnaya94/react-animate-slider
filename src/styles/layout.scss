@@ -1,7 +1,3 @@
-#root {
-  padding: 0 10px;
-}
-
 * {
   cursor: url("../../assets/images/cursor.png"), auto;
 }
@@ -14,9 +10,21 @@
   padding: 215px 80px 80px;
   position: relative;
 
+  @media (max-width: 991px) {
+    padding: 100px 40px 40px;
+  }
+
+  @media (max-width: 575px) {
+    padding: 107px 20px 20px;
+  }
+
   .line {
     position: absolute;
     background: rgba($black-blue, 0.1);
+
+    @media (max-width: 1199px) {
+      display: none;
+    }
 
     &_x {
       top: 480px;

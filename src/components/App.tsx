@@ -4,6 +4,8 @@ import Circle from "./circle/Circle";
 import { useClick } from "../helpers/useClick";
 import { datesList } from "../data/sliderData";
 import InfoSlider from "./slider/InfoSlider";
+import DateCounterLabel from "./dates/DateCounterLabel";
+import ArrowMin from "../../assets/images/vector-min.svg";
 
 const App: React.FC = () => {
   const [currentIndex, setCurrentIndex] = React.useState<number>(0);
@@ -34,6 +36,16 @@ const App: React.FC = () => {
         decrement={decrement}
       />
       <InfoSlider dataIndex={currentIndex} />
+      <div className="label-wrapper">
+        <DateCounterLabel
+          datesList={datesList}
+          dateIndex={currentIndex}
+          increment={increment}
+          decrement={decrement}
+          prefix="outer"
+          icon={ArrowMin}
+        />
+      </div>
     </div>
   );
 };
