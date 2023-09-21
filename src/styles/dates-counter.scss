@@ -1,11 +1,11 @@
 .counter {
-  margin: 0 auto 95px;
+  margin: 0 auto 80px;
   position: relative;
   height: 530px;
 
   @media (max-width: 575px) {
     height: 190px;
-    margin: 0 auto 20px;
+    margin: 0 auto 3px;
     border-bottom: 2px solid $light-grey;
   }
 
@@ -16,7 +16,7 @@
     left: 0;
 
     @media (max-width: 575px) {
-      top: -56px;
+      top: -50px;
     }
 
     &::before {
@@ -59,7 +59,7 @@
     align-items: center;
 
     @media (max-width: 575px) {
-      height: 190px;
+      height: 175px;
     }
   }
 
@@ -68,6 +68,13 @@
     z-index: 5;
     display: flex;
     gap: 115px;
+    bottom: 15px;
+    right: 20px;
+
+    @media (max-width: 1900px) {
+      bottom: 0px;
+      right: 0px;
+    }
 
     @media (max-width: 767px) {
       gap: 70px;
@@ -77,6 +84,7 @@
       gap: normal;
       width: 100%;
       justify-content: space-between;
+      padding-right: 10px;
     }
   }
 

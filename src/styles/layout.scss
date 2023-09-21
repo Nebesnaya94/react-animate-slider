@@ -6,9 +6,13 @@
   border-left: 1px solid rgba($black-blue, 0.1);
   border-right: 1px solid rgba($black-blue, 0.1);
   max-width: 1440px;
-  margin: 0 auto;
+  margin-left: 320px;
   padding: 215px 80px 80px;
   position: relative;
+
+  @media (max-width: 1900px) {
+    margin: 0 auto;
+  }
 
   @media (max-width: 991px) {
     padding: 100px 40px 40px;

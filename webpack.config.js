@@ -14,7 +14,12 @@ module.exports = {
     port: 3000,
     open: true,
   },
-  plugins: [new HTMLWebpackPlugin({ template: "./public/index.html" })],
+  plugins: [
+    new HTMLWebpackPlugin({
+      template: "./public/index.html",
+      favicon: "./public/slides.png",
+    }),
+  ],
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },

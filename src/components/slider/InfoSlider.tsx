@@ -88,6 +88,13 @@ const InfoSlider: React.FC<IInfoSliderProps> = ({ dataIndex }) => {
             className="slider__item slide"
             onMouseDown={() => false}
             key={index}
+            style={{
+              paddingRight:
+                window.innerWidth >= 576 ||
+                index !== infoList[dataIndex]?.items.length - 1
+                  ? 0
+                  : "40px",
+            }}
           >
             <h2 className="slide__title">{item?.date}</h2>
             <p className="slide__text">{item?.info}</p>
