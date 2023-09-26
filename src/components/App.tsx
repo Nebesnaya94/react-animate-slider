@@ -7,6 +7,7 @@ import InfoSlider from "./slider/InfoSlider";
 import DateCounterLabel from "./dates/DateCounterLabel";
 import ArrowMin from "../../assets/images/vector-min.svg";
 import DateCounterMin from "./dates/DateCounterMin";
+import { CountContext } from "../helpers/createContext";
 
 const App: React.FC = () => {
   const [currentIndex, setCurrentIndex] = React.useState<number>(0);
@@ -26,29 +27,21 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="wrapper">
-      <div className="line line_x"></div>
-      <div className="line line_y"></div>
-      <Circle index={currentIndex} setIndex={setCurrentIndex} />
-      <DatesSlider
-        datesList={datesList}
-        dateIndex={currentIndex}
-        increment={increment}
-        decrement={decrement}
-      />
-      <InfoSlider dataIndex={currentIndex} />
-      <div className="counter-wrapper">
-        <DateCounterLabel
-          datesList={datesList}
-          dateIndex={currentIndex}
-          increment={increment}
-          decrement={decrement}
-          prefix="outer"
-          icon={ArrowMin}
-        />
-        <DateCounterMin index={currentIndex} setIndex={setCurrentIndex} />
+    <CountContext.Provider
+      value={{ currentIndex, setCurrentIndex, increment, decrement }}
+    >
+      <div className="wrapper">
+        <div className="line line_x"></div>
+        <div className="line line_y"></div>
+        <Circle />
+        <DatesSlider />
+        <InfoSlider />
+        <div className="counter-wrapper">
+          <DateCounterLabel prefix="outer" icon={ArrowMin} />
+          <DateCounterMin />
+        </div>
       </div>
-    </div>
+    </CountContext.Provider>
   );
 };
 

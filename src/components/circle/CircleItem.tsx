@@ -1,35 +1,31 @@
-import gsap from "gsap";
 import React from "react";
 import { infoList } from "../../data/sliderData";
+import { CountContext } from "../../helpers/createContext";
 
 interface ICircleItemProps {
-  setIndex: (value: number) => void;
-  currentIndex: number;
-  itemIndex: number;
+  key: number;
 }
 
-const CircleItem: React.FC<ICircleItemProps> = ({
-  setIndex,
-  currentIndex,
-  itemIndex,
-}) => {
+const CircleItem: React.FC<ICircleItemProps> = ({ key }) => {
+  const { currentIndex, setCurrentIndex } = React.useContext(CountContext);
+
   return (
     <div className="circle__dot">
       <div className="circle__item">
         <button
-          onClick={() => setIndex(itemIndex)}
+          onClick={() => setCurrentIndex(key)}
           className={`circle__button${
-            currentIndex === itemIndex ? " " + "active" : ""
+            currentIndex === key ? " " + "active" : ""
           }`}
         >
-          {itemIndex + 1}
+          {key + 1}
         </button>
         <div
           className={`circle__text${
-            currentIndex === itemIndex ? " " + "active" : ""
+            currentIndex === key ? " " + "active" : ""
           }`}
         >
-          {infoList[itemIndex].title}
+          {infoList[key].title}
         </div>
       </div>
     </div>
