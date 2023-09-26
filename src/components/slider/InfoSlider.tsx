@@ -82,11 +82,11 @@ const InfoSlider: React.FC<IInfoSliderProps> = ({ dataIndex }) => {
           setIsStart(swiperRef.current?.swiper.isBeginning);
           setIsEnd(swiperRef.current?.swiper.isEnd);
         }}
+        onMouseDown={() => false}
       >
         {infoList[dataIndex]?.items.map((item, index) => (
           <SwiperSlide
             className="slider__item slide"
-            onMouseDown={() => false}
             key={index}
             style={{
               paddingRight:
