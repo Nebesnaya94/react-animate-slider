@@ -58,7 +58,7 @@ const Circle: React.FC = () => {
     <div className="circle">
       <div className="circle__container">
         {datesList.map((_, i) => (
-          <CircleItem key={i} />
+          <CircleItem key={i} index={i} />
         ))}
       </div>
     </div>

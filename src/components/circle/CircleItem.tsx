@@ -3,29 +3,29 @@ import { infoList } from "../../data/sliderData";
 import { CountContext } from "../../helpers/createContext";
 
 interface ICircleItemProps {
-  key: number;
+  index: number;
 }
 
-const CircleItem: React.FC<ICircleItemProps> = ({ key }) => {
+const CircleItem: React.FC<ICircleItemProps> = ({ index }) => {
   const { currentIndex, setCurrentIndex } = React.useContext(CountContext);
 
   return (
     <div className="circle__dot">
       <div className="circle__item">
         <button
-          onClick={() => setCurrentIndex(key)}
+          onClick={() => setCurrentIndex(index)}
           className={`circle__button${
-            currentIndex === key ? " " + "active" : ""
+            currentIndex === index ? " " + "active" : ""
           }`}
         >
-          {key + 1}
+          {index + 1}
         </button>
         <div
           className={`circle__text${
-            currentIndex === key ? " " + "active" : ""
+            currentIndex === index ? " " + "active" : ""
           }`}
         >
-          {infoList[key].title}
+          {infoList[index].title}
         </div>
       </div>
     </div>
