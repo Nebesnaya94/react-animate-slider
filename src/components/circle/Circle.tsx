@@ -1,7 +1,6 @@
 import React from "react";
 import CircleItem from "./CircleItem";
 import gsap from "gsap";
-import { disposeCircleItems } from "../../helpers/disposeCircleItems";
 import { datesList } from "../../data/sliderData";
 import { CountContext } from "../../helpers/createContext";
 
@@ -11,11 +10,7 @@ const Circle: React.FC = () => {
   const [hasMounted, setHasMounted] = React.useState<boolean>(false);
   const [prevIndex, setPrevIndex] = React.useState<number>(0);
 
-  const { currentIndex } = React.useContext(CountContext);
-
-  React.useEffect(() => {
-    disposeCircleItems(datesList.length);
-  }, []);
+  const { currentIndex, totalCount } = React.useContext(CountContext);
 
   function rotate() {
     if (isRotating || !hasMounted) return;
@@ -23,9 +18,9 @@ const Circle: React.FC = () => {
     const newRotation =
       currentIndex > prevIndex
         ? currentRotation +
-          (360 - (currentIndex - prevIndex) * (360 / datesList.length))
+          (360 - (currentIndex - prevIndex) * (360 / totalCount))
         : currentRotation -
-          (360 - (prevIndex - currentIndex) * (360 / datesList.length));
+          (360 - (prevIndex - currentIndex) * (360 / totalCount));
 
     setIsRotating(true);
 

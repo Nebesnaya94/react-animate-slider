@@ -7,19 +7,31 @@ interface ICircleItemProps {
 }
 
 const CircleItem: React.FC<ICircleItemProps> = ({ index }) => {
-  const { currentIndex, setCurrentIndex } = React.useContext(CountContext);
+  const { currentIndex, setCurrentIndex, totalCount } =
+    React.useContext(CountContext);
+
+  const angleStep = 360 / totalCount;
 
   return (
-    <div className="circle__dot">
+    <div
+      style={{
+        transform: `rotate(${angleStep * index}deg) translate(265px) rotate(-${
+          angleStep * index
+        }deg)`,
+      }}
+      className="circle__dot"
+    >
       <div className="circle__item">
-        <button
-          onClick={() => setCurrentIndex(index)}
-          className={`circle__button${
-            currentIndex === index ? " " + "active" : ""
-          }`}
-        >
-          {index + 1}
-        </button>
+        <div className="circle__button-wrapper">
+          <button
+            onClick={() => setCurrentIndex(index)}
+            className={`circle__button${
+              currentIndex === index ? " " + "active" : ""
+            }`}
+          >
+            {index + 1}
+          </button>
+        </div>
         <div
           className={`circle__text${
             currentIndex === index ? " " + "active" : ""

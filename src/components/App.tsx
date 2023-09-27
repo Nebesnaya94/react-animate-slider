@@ -11,11 +11,12 @@ import { CountContext } from "../helpers/createContext";
 
 const App: React.FC = () => {
   const [currentIndex, setCurrentIndex] = React.useState<number>(0);
+  const totalCount = datesList.length;
 
   useClick();
 
   function increment() {
-    if (currentIndex < datesList.length - 1) {
+    if (currentIndex < totalCount - 1) {
       setCurrentIndex(currentIndex + 1);
     }
   }
@@ -28,7 +29,13 @@ const App: React.FC = () => {
 
   return (
     <CountContext.Provider
-      value={{ currentIndex, setCurrentIndex, increment, decrement }}
+      value={{
+        currentIndex,
+        setCurrentIndex,
+        increment,
+        decrement,
+        totalCount,
+      }}
     >
       <div className="wrapper">
         <div className="line line_x"></div>

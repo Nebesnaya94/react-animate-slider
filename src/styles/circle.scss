@@ -40,6 +40,21 @@
     }
   }
 
+  &__button-wrapper {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    right: 24px;
+    cursor: pointer;
+
+    &:hover {
+      .circle__button {
+        transform: scale(1);
+        background: $light;
+      }
+    }
+  }
+
   &__button {
     position: absolute;
     transform: scale(0);
@@ -63,18 +78,9 @@
 
   &__item {
     position: relative;
-    width: 56px;
-    height: 56px;
     left: 4px;
     top: 4px;
     transform: translate(-50%, -50%) rotate(45deg);
-
-    &:hover {
-      .circle__button {
-        transform: scale(1);
-        background: $light;
-      }
-    }
   }
 
   &__text {

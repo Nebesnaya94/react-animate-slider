@@ -1,5 +1,4 @@
 import React from "react";
-import { datesList } from "../../data/sliderData";
 import { CountContext } from "../../helpers/createContext";
 
 interface ILabelProps {
@@ -8,12 +7,13 @@ interface ILabelProps {
 }
 
 const DateCounterLabel: React.FC<ILabelProps> = ({ prefix, icon }) => {
-  const { currentIndex, increment, decrement } = React.useContext(CountContext);
+  const { currentIndex, increment, decrement, totalCount } =
+    React.useContext(CountContext);
 
   return (
     <div className={`${prefix}-label`}>
       <div className={`${prefix}-label__text`}>
-        0{currentIndex + 1}/0{datesList.length}
+        0{currentIndex + 1}/0{totalCount}
       </div>
       <div className={`${prefix}-label__buttons`}>
         <button
@@ -26,7 +26,7 @@ const DateCounterLabel: React.FC<ILabelProps> = ({ prefix, icon }) => {
         <button
           className={`${prefix}-label__button ${prefix}-label__button_next`}
           onClick={increment}
-          disabled={currentIndex >= datesList.length - 1}
+          disabled={currentIndex >= totalCount - 1}
         >
           <img src={icon} alt="arrow-next" />
         </button>
