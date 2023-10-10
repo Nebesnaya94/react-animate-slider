@@ -2,17 +2,17 @@
   cursor: url("../../assets/images/cursor.png"), auto;
 }
 
+#root {
+  min-height: 100vh;
+}
+
 .wrapper {
   border-left: 1px solid rgba($black-blue, 0.1);
   border-right: 1px solid rgba($black-blue, 0.1);
   max-width: 1440px;
-  margin-left: 320px;
+  margin: 0 auto;
   padding: 215px 80px 80px;
   position: relative;
-
-  @media (max-width: 1900px) {
-    margin: 0 auto;
-  }
 
   @media (max-width: 991px) {
     padding: 100px 40px 40px;
@@ -26,7 +26,7 @@
     position: absolute;
     background: rgba($black-blue, 0.1);
 
-    @media (max-width: 1199px) {
+    @media (max-width: 991px) {
       display: none;
     }
 

@@ -22,9 +22,11 @@ const CircleItem: React.FC<ICircleItemProps> = ({ index }) => {
       className="circle__dot"
     >
       <div className="circle__item">
-        <div className="circle__button-wrapper">
+        <div
+          onClick={() => setCurrentIndex(index)}
+          className="circle__button-wrapper"
+        >
           <button
-            onClick={() => setCurrentIndex(index)}
             className={`circle__button${
               currentIndex === index ? " " + "active" : ""
             }`}

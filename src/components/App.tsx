@@ -43,10 +43,10 @@ const App: React.FC = () => {
         <Circle />
         <DatesSlider />
         <InfoSlider />
-        <div className="counter-wrapper">
-          <DateCounterLabel prefix="outer" icon={ArrowMin} />
-          <DateCounterMin />
-        </div>
+      </div>
+      <div className="counter-wrapper">
+        <DateCounterLabel prefix="outer" icon={ArrowMin} />
+        <DateCounterMin />
       </div>
     </CountContext.Provider>
   );

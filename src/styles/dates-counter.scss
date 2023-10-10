@@ -3,6 +3,10 @@
   position: relative;
   height: 530px;
 
+  @media (max-width: 991px) {
+    margin: 0 auto 30px;
+  }
+
   @media (max-width: 575px) {
     height: 190px;
     margin: 0 auto 3px;
@@ -64,17 +68,9 @@
   }
 
   &__dates {
-    position: relative;
     z-index: 5;
     display: flex;
     gap: 115px;
-    bottom: 15px;
-    right: 20px;
-
-    @media (max-width: 1900px) {
-      bottom: 0px;
-      right: 0px;
-    }
 
     @media (max-width: 767px) {
       gap: 70px;
