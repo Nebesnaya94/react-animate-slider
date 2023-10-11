@@ -1,75 +1,45 @@
-import gsap from "gsap";
 import React from "react";
 import { infoList } from "../../data/sliderData";
+import { CountContext } from "../../helpers/createContext";
 
 interface ICircleItemProps {
-  setIndex: (value: number) => void;
-  currentIndex: number;
-  itemIndex: number;
+  index: number;
 }
 
-interface IAnimationValues {
-  [key: string]: string | number;
-}
+const CircleItem: React.FC<ICircleItemProps> = ({ index }) => {
+  const { currentIndex, setCurrentIndex, totalCount } =
+    React.useContext(CountContext);
 
-const CircleItem: React.FC<ICircleItemProps> = ({
-  setIndex,
-  currentIndex,
-  itemIndex,
-}) => {
-  const buttonRef = React.useRef<HTMLButtonElement | null>(null);
-  const [isAnimating, setIsAnimating] = React.useState<boolean>(false);
-
-  function animateButton(
-    startValues: IAnimationValues,
-    endValues: IAnimationValues
-  ) {
-    const button = buttonRef.current;
-    if (currentIndex === itemIndex || isAnimating) return;
-    setIsAnimating(true);
-    const tl = gsap.timeline({
-      onComplete: () => {
-        setIsAnimating(false);
-        gsap.set(button, { clearProps: "all" });
-      },
-    });
-    tl.fromTo(button, startValues, endValues);
-  }
-
-  function buttonIn() {
-    animateButton(
-      { scale: 0, opacity: 0, background: "#303e58" },
-      { scale: 1, opacity: 1, background: "#fff", duration: 0.5 }
-    );
-  }
-
-  function buttonOut() {
-    animateButton(
-      { scale: 1, opacity: 1, background: "#fff" },
-      { scale: 0, opacity: 0, background: "#303e58", duration: 0.5 }
-    );
-  }
+  const angleStep = 360 / totalCount;
 
   return (
-    <div className="circle__dot">
+    <div
+      style={{
+        transform: `rotate(${angleStep * index}deg) translate(265px) rotate(-${
+          angleStep * index
+        }deg)`,
+      }}
+      className="circle__dot"
+    >
       <div className="circle__item">
-        <button
-          ref={buttonRef}
-          onMouseEnter={buttonIn}
-          onMouseLeave={buttonOut}
-          onClick={() => setIndex(itemIndex)}
-          className={`circle__button${
-            currentIndex === itemIndex ? " " + "active" : ""
-          }`}
+        <div
+          onClick={() => setCurrentIndex(index)}
+          className="circle__button-wrapper"
         >
-          {itemIndex + 1}
-        </button>
+          <button
+            className={`circle__button${
+              currentIndex === index ? " " + "active" : ""
+            }`}
+          >
+            {index + 1}
+          </button>
+        </div>
         <div
           className={`circle__text${
-            currentIndex === itemIndex ? " " + "active" : ""
+            currentIndex === index ? " " + "active" : ""
           }`}
         >
-          {infoList[itemIndex].title}
+          {infoList[index].title}
         </div>
       </div>
     </div>

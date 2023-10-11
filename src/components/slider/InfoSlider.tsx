@@ -2,20 +2,20 @@ import React from "react";
 import { Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import { infoList } from "../../data/sliderData";
+import { CountContext } from "../../helpers/createContext";
+
 import gsap from "gsap";
 import SliderArrow from "../../../assets/images/vector-slider.svg";
 
 import "swiper/css";
 import "swiper/css/navigation";
 
-interface IInfoSliderProps {
-  dataIndex: number;
-}
-
-const InfoSlider: React.FC<IInfoSliderProps> = ({ dataIndex }) => {
+const InfoSlider: React.FC = () => {
   const swiperRef = React.useRef<SwiperRef>(null);
   const [isStart, setIsStart] = React.useState<boolean>(true);
   const [isEnd, setIsEnd] = React.useState<boolean>(true);
+
+  const { currentIndex } = React.useContext(CountContext);
 
   const visibleSlides: number =
     window.innerWidth >= 1440
@@ -61,7 +61,7 @@ const InfoSlider: React.FC<IInfoSliderProps> = ({ dataIndex }) => {
     goToFirstSlide();
     setIsStart(swiperRef.current?.swiper.isBeginning);
     setIsEnd(swiperRef.current?.swiper.isEnd);
-  }, [dataIndex]);
+  }, [currentIndex]);
 
   return (
     <span className="slider">
@@ -82,16 +82,16 @@ const InfoSlider: React.FC<IInfoSliderProps> = ({ dataIndex }) => {
           setIsStart(swiperRef.current?.swiper.isBeginning);
           setIsEnd(swiperRef.current?.swiper.isEnd);
         }}
+        onMouseDown={() => false}
       >
-        {infoList[dataIndex]?.items.map((item, index) => (
+        {infoList[currentIndex]?.items.map((item, index) => (
           <SwiperSlide
             className="slider__item slide"
-            onMouseDown={() => false}
             key={index}
             style={{
               paddingRight:
                 window.innerWidth >= 576 ||
-                index !== infoList[dataIndex]?.items.length - 1
+                index !== infoList[currentIndex]?.items.length - 1
                   ? 0
                   : "40px",
             }}

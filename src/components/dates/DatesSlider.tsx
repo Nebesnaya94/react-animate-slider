@@ -1,23 +1,13 @@
 import React from "react";
 import DateCounter from "./DateCounter";
-import { TDates } from "../../data/models";
 import DateCounterLabel from "./DateCounterLabel";
 import ArrowCounter from "../../../assets/images/vector-count.svg";
+import { datesList } from "../../data/sliderData";
+import { CountContext } from "../../helpers/createContext";
 
-export interface IDateSliderProps {
-  dateIndex: number;
-  increment: () => void;
-  decrement: () => void;
-  datesList: TDates[];
-}
-
-const DatesSlider: React.FC<IDateSliderProps> = ({
-  datesList,
-  dateIndex,
-  increment,
-  decrement,
-}) => {
-  const currentDates = datesList[dateIndex];
+const DatesSlider: React.FC = () => {
+  const { currentIndex } = React.useContext(CountContext);
+  const currentDates = datesList[currentIndex];
 
   return (
     <div className="counter">
@@ -35,14 +25,7 @@ const DatesSlider: React.FC<IDateSliderProps> = ({
           </div>
         </div>
       </div>
-      <DateCounterLabel
-        datesList={datesList}
-        dateIndex={dateIndex}
-        increment={increment}
-        decrement={decrement}
-        prefix="inner"
-        icon={ArrowCounter}
-      />
+      <DateCounterLabel prefix="inner" icon={ArrowCounter} />
     </div>
   );
 };

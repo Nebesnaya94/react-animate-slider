@@ -1,15 +1,19 @@
 import React from "react";
-import { IDateCounterProps } from "../circle/Circle";
 import { datesList } from "../../data/sliderData";
+import { CountContext } from "../../helpers/createContext";
 
-const DateCounterMin: React.FC<IDateCounterProps> = ({ index, setIndex }) => {
+const DateCounterMin: React.FC = () => {
+  const { currentIndex, setCurrentIndex } = React.useContext(CountContext);
+
   return (
     <div className="counter-min">
       {datesList.map((_, i) => (
         <div
           key={i}
-          onClick={() => setIndex(i)}
-          className={`counter-min__dot${i === index ? " " + "active" : ""}`}
+          onClick={() => setCurrentIndex(i)}
+          className={`counter-min__dot${
+            i === currentIndex ? " " + "active" : ""
+          }`}
         ></div>
       ))}
     </div>
